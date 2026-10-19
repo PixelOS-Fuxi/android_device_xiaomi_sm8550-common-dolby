@@ -1,0 +1,28 @@
+# Dolby audio properties for fuxi.
+#
+# Values match stock fuxi OS3.0.308.0.WMCCNXM odm/etc/build.prop.
+#
+# The Dolby Vision display properties (ro.vendor.display.dolbyvision.support,
+# ro.vendor.mi_sf.gallery_p3_dolby_opt) and the video-path debug properties
+# (debug.config.media.video.dolby_vision_suports, dolby_capture_supports)
+# deliberately stay out of this file: they belong to the camera/video half and
+# are already set by device/xiaomi/fuxi-miuicamera.
+
+# Dolby audio support
+ro.vendor.audio.dolby.dax.support=true
+ro.vendor.audio.dolby.dax.version=DAX3_3.8.5.20_r1
+ro.vendor.dolby.dax.version=DAX3_3.8.5.20_r1
+ro.vendor.audio.dolby.vision.support=true
+
+# Default spatial audio profile when Dolby is engaged
+ro.vendor.audio.dolby.spatial.profile=movie
+
+# EQ shaping for the speaker path
+ro.vendor.audio.dolby.eq.half=true
+
+# Surround is off by default on this platform
+ro.vendor.audio.dolby.surround.enable=false
+
+# DS2 is not part of the sm8550 Dolby stack
+vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.hardbypass=false

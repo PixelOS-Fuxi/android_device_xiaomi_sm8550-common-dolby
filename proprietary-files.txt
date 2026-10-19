@@ -1,0 +1,43 @@
+## All proprietary files listed here are from Xiaomi 13 (fuxi)
+## OS3.0.308.0.WMCCNXM, matching the rest of the sm8550-common vendor tree.
+##
+## This tree owns the Dolby *audio* stack only. The Dolby Vision video components
+## (bin/hw/dolbycodec2, lib64/c2.dolby.hevc.*, lib64/c2.dolby.store.so,
+## lib64/c2.dolby.client.so, lib64/libdolbyottcameracontrol.so) live in
+## device/xiaomi/fuxi-miuicamera, because they are only reachable through
+## MIUI Camera and their Codec2 xml declarations sit next to the camera blobs.
+##
+## libcodec2_store_dolby.so is deliberately owned by *this* tree: the Dolby
+## audio decoders (libcodec2_soft_ac4dec.so, libcodec2_soft_ddpdec.so) and the
+## media.c2 service all resolve android::GetCodec2DolbyComponentStore() from it
+## to expose the IComponentStore/default1 instance.
+
+# Audio post-processing libraries
+vendor/lib64/soundfx/libdlbvol.so
+vendor/lib64/soundfx/libhwdap.so
+vendor/lib64/soundfx/libshoebox.so
+vendor/lib64/soundfx/libspatializer.so
+vendor/lib64/soundfx/libswgamedap.so
+vendor/lib64/soundfx/libswspatializer.so
+vendor/lib64/soundfx/libmisoundfx.so
+vendor/lib64/soundfx/libswvqe.so
+vendor/lib64/libdapparamstorage.so
+vendor/lib64/libdlbpreg.so
+vendor/lib64/libdlbdsservice.so
+vendor/lib64/libspatializerparamstorage.so
+vendor/lib64/libswspatializer_ext.so
+vendor/lib64/libdeccfg.so
+
+# Dolby audio Codec2 store and decoders (IComponentStore/default1)
+vendor/bin/hw/vendor.dolby.media.c2@1.0-service
+vendor/lib64/libcodec2_store_dolby.so
+vendor/lib64/libcodec2_soft_ac4dec.so
+vendor/lib64/libcodec2_soft_ddpdec.so
+
+# Dolby Management Service (DMS, vendor.dolby.hardware.dms@2.0)
+vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
+vendor/lib64/vendor.dolby.hardware.dms@2.0.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
+
+# Configs
+vendor/etc/dolby/dax-default.xml

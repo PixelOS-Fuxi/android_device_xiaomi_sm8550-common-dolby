@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Framework compatibility matrix entries for the Dolby *audio* stack.
+
+    Only the DMS (Dolby Management Service) is declared here. The Codec2
+    component store entries are split by purpose:
+
+      - IComponentStore/dolby        -> Dolby Vision, declared by fuxi-miuicamera
+      - IComponentStore/default1     -> Dolby audio decoders (AC-3/E-AC-3/AC-4),
+                                        declared by this tree below
+
+    Keeping them apart lets the camera tree and the audio tree be built and
+    shipped independently.
+-->
+<compatibility-matrix version="8.0" type="framework">
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <version>1.0</version>
+        <interface>
+            <name>IComponentStore</name>
+            <!-- Dolby audio decoders (AC-3 / E-AC-3 / AC-4) -->
+            <instance>default1</instance>
+        </interface>
+    </hal>
+
+    <hal format="hidl" optional="true">
+        <name>vendor.dolby.hardware.dms</name>
+        <version>2.0</version>
+        <interface>
+            <name>IDms</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

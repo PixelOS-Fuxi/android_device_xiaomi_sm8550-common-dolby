@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Device manifest fragment for the Dolby *audio* Codec2 store.
+
+    vendor.dolby.media.c2@1.0-service registers IComponentStore/default1 and
+    serves the Dolby audio decoders declared in media_codecs_dolby_audio.xml
+    (AC-3 / E-AC-3 / E-AC-3-JOC / AC-4).
+
+    IComponentStore/dolby (Dolby Vision) is declared separately by
+    device/xiaomi/fuxi-miuicamera in configs/vintf/c2_manifest_dolby.xml, so the
+    audio and camera halves stay independent.
+-->
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IComponentStore/default1</fqname>
+    </hal>
+</manifest>

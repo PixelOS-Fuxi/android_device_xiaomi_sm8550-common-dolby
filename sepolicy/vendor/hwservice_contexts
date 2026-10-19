@@ -1,0 +1,4 @@
+# SELinux hardware service contexts for the Dolby audio stack.
+# Label matches stock fuxi OS3.0.308.0.WMCCNXM vendor_hwservice_contexts.
+
+vendor.dolby.hardware.dms::IDms    u:object_r:hal_dms_hwservice:s0

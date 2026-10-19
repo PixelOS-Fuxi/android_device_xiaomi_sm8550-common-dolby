@@ -1,0 +1,6 @@
+# The Dolby audio Codec2 store service (vendor.dolby.media.c2@1.0-service)
+# runs as mediacodec and needs to reach the DMS.
+hal_client_domain(mediacodec, hal_dms)
+
+allow mediacodec hal_dms_hwservice:hwservice_manager find;
+binder_call(mediacodec, hal_dms_default)
