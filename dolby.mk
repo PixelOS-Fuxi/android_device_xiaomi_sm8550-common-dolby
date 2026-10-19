@@ -14,9 +14,10 @@
 # IMPORTANT: audio_effects.xml is owned by device/xiaomi/sm8550-common.
 # Do not add a PRODUCT_COPY_FILES entry for it here. The Dolby library and
 # effect entries are already merged into
-# hardware/qcom-caf/sm8550/audio/primary-hal/configs/kalama/audio_effects.xml,
-# alongside the ViPER4Android entries. A second copy rule would silently
-# clobber one of the two.
+# device/xiaomi/sm8550-common/configs/audio/sku_kalama/audio_effects.xml,
+# alongside the ViPER4Android entries. That copy is deliberately taken from
+# the device tree rather than from the primary-hal repo, so a repo sync cannot
+# revert the merge. A second copy rule would silently clobber one of the two.
 
 DOLBY_PATH := device/xiaomi/sm8550-common-dolby
 
